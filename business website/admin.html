@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumsel Merchants - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="sidebar">
+            <div class="logo-admin">Admin Panel</div>
+            <ul>
+                <li><a href="#" onclick="showSection('dashboard')" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#" onclick="showSection('orders')"><i class="fas fa-box"></i> Orders</a></li>
+                <li><a href="#" onclick="showSection('products')"><i class="fas fa-product-hunt"></i> Products</a></li>
+                <li><a href="#" onclick="showSection('customers')"><i class="fas fa-users"></i> Customers</a></li>
+                <li><a href="#" onclick="showSection('sales')"><i class="fas fa-chart-bar"></i> Sales Report</a></li>
+                <li><hr></li>
+                <li><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Site</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <!-- Dashboard Overview -->
+            <section id="dashboard" class="admin-section">
+                <h1>Dashboard Overview</h1>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-box"></i>
+                        <h3>Total Products</h3>
+                        <p id="totalProducts">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Total Orders</h3>
+                        <p id="totalOrders">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Total Sales</h3>
+                        <p id="totalSales">$0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Total Customers</h3>
+                        <p id="totalCustomers">0</p>
+                    </div>
+                </div>
+                <h2>Recent Orders</h2>
+                <div id="recentOrders" class="dashboard-table"></div>
+            </section>
+
+            <!-- Orders Management -->
+            <section id="orders" class="admin-section" style="display:none;">
+                <h1>Manage Orders</h1>
+                <div class="admin-controls">
+                    <button onclick="addOrder()" class="btn btn-primary"><i class="fas fa-plus"></i> Add Order</button>
+                </div>
+                <div id="ordersTable" class="admin-table-container"></div>
+
+                <!-- Order Modal -->
+                <div id="orderModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeOrderModal()">&times;</span>
+                        <h2>Order Details</h2>
+                        <form id="orderForm">
+                            <label>Order ID:</label>
+                            <input type="text" id="orderId" readonly>
+                            
+                            <label>Customer:</label>
+                            <input type="text" id="orderCustomer" required>
+                            
+                            <label>Items:</label>
+                            <input type="text" id="orderItems" placeholder="e.g., Product 1 (2), Product 2 (1)" required>
+                            
+                            <label>Total Amount:</label>
+                            <input type="number" id="orderAmount" step="0.01" required>
+                            
+                            <label>Status:</label>
+                            <select id="orderStatus" required>
+                                <option>Pending</option>
+                                <option>Paid</option>
+                                <option>Shipped</option>
+                            </select>
+                            
+                            <label>Date:</label>
+                            <input type="date" id="orderDate" required>
+                            
+                            <button type="submit" class="btn btn-primary">Save Order</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Management -->
+            <section id="products" class="admin-section" style="display:none;">
+                <h1>Manage Products</h1>
+                <div class="admin-controls">
+                    <button onclick="addProduct()" class="btn btn-primary"><i class="fas fa-plus"></i> Add Product</button>
+                </div>
+                <div id="productsTable" class="admin-table-container"></div>
+
+                <!-- Product Modal -->
+                <div id="productModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeProductModal()">&times;</span>
+                        <h2>Product Details</h2>
+                        <form id="productForm">
+                            <label>Product ID:</label>
+                            <input type="text" id="productId" readonly>
+                            
+                            <label>Product Name:</label>
+                            <input type="text" id="productName" required>
+                            
+                            <label>Description:</label>
+                            <textarea id="productDescription" required></textarea>
+                            
+                            <label>Price:</label>
+                            <input type="number" id="productPrice" step="0.01" required>
+                            
+                            <label>Image URL:</label>
+                            <input type="text" id="productImage" required>
+                            
+                            <button type="submit" class="btn btn-primary">Save Product</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customers Management -->
+            <section id="customers" class="admin-section" style="display:none;">
+                <h1>Manage Customers</h1>
+                <div class="admin-controls">
+                    <button onclick="addCustomer()" class="btn btn-primary"><i class="fas fa-plus"></i> Add Customer</button>
+                </div>
+                <div id="customersTable" class="admin-table-container"></div>
+
+                <!-- Customer Modal -->
+                <div id="customerModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeCustomerModal()">&times;</span>
+                        <h2>Customer Details</h2>
+                        <form id="customerForm">
+                            <label>Customer ID:</label>
+                            <input type="text" id="customerId" readonly>
+                            
+                            <label>Name:</label>
+                            <input type="text" id="customerName" required>
+                            
+                            <label>Email:</label>
+                            <input type="email" id="customerEmail" required>
+                            
+                            <label>Phone:</label>
+                            <input type="tel" id="customerPhone" required>
+                            
+                            <label>Address:</label>
+                            <textarea id="customerAddress" required></textarea>
+                            
+                            <label>City:</label>
+                            <input type="text" id="customerCity" required>
+                            
+                            <button type="submit" class="btn btn-primary">Save Customer</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sales Report -->
+            <section id="sales" class="admin-section" style="display:none;">
+                <h1>Sales Report</h1>
+                <div class="admin-controls">
+                    <button onclick="exportSalesReport()" class="btn btn-success"><i class="fas fa-download"></i> Export to CSV</button>
+                </div>
+                
+                <div class="sales-summary">
+                    <div class="summary-card">
+                        <h3>Total Revenue</h3>
+                        <p id="totalRevenue">$0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Total Orders</h3>
+                        <p id="reportTotalOrders">0</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Average Order Value</h3>
+                        <p id="avgOrderValue">$0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Orders by Status</h3>
+                        <p id="statusBreakdown"></p>
+                    </div>
+                </div>
+
+                <h2>Detailed Sales Data</h2>
+                <div id="salesTable" class="admin-table-container"></div>
+            </section>
+        </div>
+    </div>
+
+    <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
