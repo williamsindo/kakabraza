@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE edge">
+    <meta name="ViewPort" content="width=device-width,initial-scale=1.0">
+    <title>Login form in HTML and CSS | Codehal</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./assets/js/script.js" defer></script>
+</head>
+
+
+<body>
+
+<header class="header" data-header>
+    <div class="container">
+        
+        <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="80" height="25" alt="logo">
+        </a>
+
+    <nav class="navbar" data-navbar>
+    <ul class="navbar-list">
+
+      <li>
+        <a href="#" class="navbar-link label-medium active">Home</a>
+      </li>
+      <li>
+        <a href="#" class="navbar-link label-medium">Rent</a>
+      </li>
+      <li>
+        <a href="selling.html" class="navbar-link label-medium">Sell</a>
+      </li>
+      <li>
+        <a href="buy.html" class="navbar-link label-medium">Buy</a>
+      </li>
+      <li>
+        <a href="#" class="navbar-link label-medium">About</a>
+      </li>
+    </ul>
+    <div class="navbar-wrapper">
+      <a href="#" class="btn-link label-medium">Login</a>
+
+      <a href="#" class="btn btn-outline label-medium">Get Started</a>
+    </div>
+    </nav>
+
+   <button class="nav-toggle-btn icon-btn" aria-label="toggle navbar" data-nav-toggler>
+    <span class="material-symbols-rounded open" aria-hidden="true">menu</span>
+
+    <span class="material-symbols-rounded close" aria-hidden="true">close</span>
+   </button>
+
+    </div>
+  </header>
+
+
+<section class="lform">
+
+    <div class="lwrapper">
+        <form action="login.php" method="POST">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username"required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="password"required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>    
+
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="search-btn btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+
+    <footer class="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="footer-brand">
+              <a href="#"  class="logo">
+                <img src="./assets/images/logo.png" width="80" height="25" alt="Betterhomes">
+              </a>
+
+              <p class="body-medium footer-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, aspernatur repellendus, sit inventore in officiis eveniet nihil et facilis a illum architecto maxime tempora. Dolorem nemo aspernatur recusandae expedita est?
+              </p>
+            </div>
+            <nav class="footer-nav" aria-labelledby="nav-label-1">
+              <p class="title-small footer-list-title" id="nav-label-1">Quick link</p>
+  
+              <ul class="footer-list">
+  
+  
+                <li>
+                  <a href="#" class="body-medium footer-link">Home</a>
+                </li>
+                <li>
+                  <a href="#" class="body-medium footer-link">Buy</a>
+                </li>
+                <li>
+                  <a href="#" class="body-medium footer-link">Sell</a>
+                </li>
+                <li>
+                  <a href="#" class="body-medium footer-link">Rent</a>
+                </li>
+  
+  
+              </ul>
+            </nav>
+  
+            <nav class="footer-nav" aria-labelledby="nav-label-2">
+              <p class="title-small footer-list-title" id="nav-label-2">Support</p>
+  
+              <ul class="footer-list">
+  
+  
+                <li>
+                  <a href="#" class="body-medium footer-link">About us</a>
+                </li>
+                <li>
+                  <a href="#" class="body-medium footer-link">Contact us</a>
+                </li>
+                <li>
+                  <a href="#" class="body-medium footer-link">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#" class="body-medium footer-link">Terms & Conditions</a>
+                </li>
+  
+  
+              </ul>
+            </nav>
+  
+            <nav class="footer-nav" aria-labelledby="nav-label-3">
+              <p class="title-small footer-list-title" id="nav-label-3">Get in touch</p>
+  
+              <ul class="footer-list">
+  
+  
+                <li>
+                  <a href="#" class="body-medium footer-link">hello@wealthome.com</a>
+                </li>
+                <li>
+                  <address class="address body-medium">
+                    4140 Parker Rd. Allentown, New Mexico 31134
+                  </address>
+                </li>
+                <li>
+                  <ul class="social-list">
+                    <li>
+                      <a href="#" class="social-link">
+                        <img src="./assets/images/facebook.svg" alt="facebook">
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="social-link">
+                        <img src="./assets/images/twitter.svg" alt="twitter">
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="social-link">
+                        <img src="./assets/images/insta.svg" alt="instagram">
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+  
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+<p class="copyright body-medium">
+  Copyright 2025  techtitans
+</p>
+        </div>
+      </footer>
+</body>    
+
+</html>
