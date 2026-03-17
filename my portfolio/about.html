@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Kakabraza</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .about-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .skills-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .skill-item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 20px;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-item i {
+      font-size: 30px;
+      color: #764ba2;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>About Me</h1>
+    <p>I’m Kakabraza — a passionate developer crafting clean, user-focused web applications.</p>
+  </section>
+
+  <!-- About Details -->
+  <section class="about-container">
+    <!-- Profile Image -->
+    <img src="images/profile.jpg" alt="Kakabraza Profile" class="profile-img">
+
+    <h2>Who I Am</h2>
+    <p>I'm a software developer with a love for full-stack development, elegant code, and sleek design. From the frontend to the backend, I enjoy building everything that powers beautiful websites.</p>
+
+    <!-- Skills -->
+    <h2 style="margin-top: 40px;">My Skills</h2>
+    <div class="skills-list">
+      <div class="skill-item">
+        <i class="fab fa-html5"></i>
+        <p>HTML5</p>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-css3-alt"></i>
+        <p>CSS3</p>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-js-square"></i>
+        <p>JavaScript</p>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-php"></i>
+        <p>PHP</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <p>MySQL</p>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-github"></i>
+        <p>GitHub</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Kakabraza. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
