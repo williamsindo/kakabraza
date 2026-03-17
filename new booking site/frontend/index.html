@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>william's Hub - Book Your BnB</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>william's Hub</h1>
+    <nav>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="bnb" class="bnb-section">
+      <h2>Top 15 BnBs</h2>
+      <ul class="bnb-list">
+        <li>
+          <span class="bnb-name">Sunny Stay BnB</span> - <span class="bnb-price">$80/night</span>
+          <button class="btn booking-btn" data-bnb="Sunny Stay BnB">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Cozy Nest</span> - <span class="bnb-price">$75/night</span>
+          <button class="btn booking-btn" data-bnb="Cozy Nest">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Urban Retreat</span> - <span class="bnb-price">$90/night</span>
+          <button class="btn booking-btn" data-bnb="Urban Retreat">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Garden View Lodge</span> - <span class="bnb-price">$85/night</span>
+          <button class="btn booking-btn" data-bnb="Garden View Lodge">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Sunset Haven</span> - <span class="bnb-price">$95/night</span>
+          <button class="btn booking-btn" data-bnb="Sunset Haven">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Mountain Breeze</span> - <span class="bnb-price">$100/night</span>
+          <button class="btn booking-btn" data-bnb="Mountain Breeze">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Seaside Escape</span> - <span class="bnb-price">$110/night</span>
+          <button class="btn booking-btn" data-bnb="Seaside Escape">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Forest Hideaway</span> - <span class="bnb-price">$78/night</span>
+          <button class="btn booking-btn" data-bnb="Forest Hideaway">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Blue Lagoon</span> - <span class="bnb-price">$85/night</span>
+          <button class="btn booking-btn" data-bnb="Blue Lagoon">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">The Old Mill</span> - <span class="bnb-price">$70/night</span>
+          <button class="btn booking-btn" data-bnb="The Old Mill">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Lakeside Retreat</span> - <span class="bnb-price">$90/night</span>
+          <button class="btn booking-btn" data-bnb="Lakeside Retreat">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Harbor Lights</span> - <span class="bnb-price">$95/night</span>
+          <button class="btn booking-btn" data-bnb="Harbor Lights">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Whispering Pines</span> - <span class="bnb-price">$88/night</span>
+          <button class="btn booking-btn" data-bnb="Whispering Pines">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Maple Cottage</span> - <span class="bnb-price">$80/night</span>
+          <button class="btn booking-btn" data-bnb="Maple Cottage">Book Now</button>
+        </li>
+        <li>
+          <span class="bnb-name">Riverstone Inn</span> - <span class="bnb-price">$85/night</span>
+          <button class="btn booking-btn" data-bnb="Riverstone Inn">Book Now</button>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>Book <span id="bnbTitle"></span></h3>
+      <form id="bookingForm">
+        <input type="text" id="guestName" placeholder="Your Name" required />
+        <input type="email" id="guestEmail" placeholder="Your Email" required />
+        <label for="checkInDate">Check-in Date:</label>
+        <input type="date" id="checkInDate" required />
+        <label for="checkOutDate">Check-out Date:</label>
+        <input type="date" id="checkOutDate" required />
+        <button type="submit" class="btn">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+  <div class="booked-rooms" style="padding: 20px; background: #f9f9f9; border-radius: 8px; margin: 20px 0;">
+  <h2 style="margin-bottom: 10px;">📋 Booked Rooms</h2>
+  <ul id="rooms-list" style="list-style-type: none; padding: 0;"></ul>
+</div>
+
+  <script src="js/main.js"></script>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/YOUR_SITE_ID/DEFAULT';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<script>
+fetch('show_booked_rooms.php')
+  .then(response => response.json())
+  .then(data => {
+    const list = document.getElementById('rooms-list');
+    if (data.length === 0) {
+      list.innerHTML = "<li>No rooms booked currently.</li>";
+    } else {
+      data.forEach(room => {
+        const item = document.createElement('li');
+        item.textContent = `Room ${room.room_number} - Guest: ${room.guest_name} (from ${room.check_in_date} to ${room.check_out_date})`;
+        item.style.padding = "8px 0";
+        list.appendChild(item);
+      });
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching booked rooms:', error);
+  });
+</script>
+
+<!--End of Tawk.to Script-->
+
+</body>
+</html>
